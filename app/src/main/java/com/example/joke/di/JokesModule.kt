@@ -8,6 +8,7 @@ import com.example.joke.data.JokeRepoImpl
 import com.example.joke.domain.JokeDBRepository
 import com.example.joke.domain.JokeRepository
 import com.example.joke.domain.JokeUseCase
+import com.example.joke.helper.BASE_URL
 import com.example.joke.room.JokeDatabase
 import dagger.Module
 import dagger.Provides
@@ -68,7 +69,7 @@ object JokesModule {
     @Provides
     fun provideRetrofitInstance(okHttpClient: OkHttpClient): JokeAPI {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://geek-jokes.sameerkumar.website/")
+            .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
