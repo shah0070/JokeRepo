@@ -49,6 +49,9 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         jokeList.addAll(it.joke)
                     }
+                    if(jokeList.size>10){
+                        jokeList.removeAt(10)
+                    }
                     jokesAdapter.notifyDataSetChanged()
                 }
                 is JokeUIState.Failure -> {
